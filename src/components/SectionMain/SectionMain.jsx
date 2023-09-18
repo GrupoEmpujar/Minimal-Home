@@ -14,15 +14,15 @@ import fondo8 from '../../assets/images/cuadros/cuadro9.jpg';
 
 //Simulamos el traernos el array de objetos y solamente usar determinada propiead, entonces nos quedaria
 const titulos = [
-    { id: 1, title: "Cuadro", fondo: fondo },
-    { id: 2, title: "Living", fondo: fondo1 },
-    { id: 3, title: "Sillón", fondo: fondo2 },
-    { id: 4, title: "Lámpara", fondo: fondo3 },
-    { id: 5, title: "Dormitorio", fondo: fondo4 },
-    { id: 6, title: "Mesas", fondo: fondo5 },
-    { id: 7, title: "Mesas", fondo: fondo6 },
-    { id: 8, title: "Mesas", fondo: fondo7 },
-    { id: 9, title: "Mesas", fondo: fondo8 }
+    { id: 1, title: "Cuadro", fondo: fondo, categoria:"Cuadro" },
+    { id: 2, title: "Living", fondo: fondo1, categoria:"Living" },
+    { id: 3, title: "Sillón", fondo: fondo2, categoria:"Sillon" },
+    { id: 4, title: "Lámpara", fondo: fondo3, categoria:"Lampara" },
+    { id: 5, title: "Dormitorio", fondo: fondo4, categoria:"Dormitorio" },
+    { id: 6, title: "Mesas", fondo: fondo5, categoria:"Mesas" },
+    { id: 7, title: "Mesas", fondo: fondo6, categoria:"Mesas2" },
+    { id: 8, title: "Mesas", fondo: fondo7, categoria:"Mesas3" },
+    { id: 9, title: "Mesas", fondo: fondo8, categoria:"Mesas4" }
 ];
 
 
@@ -31,7 +31,7 @@ const Section = () => {
         <section className='sectionmain'>
             {
                 titulos.map(titulo => (
-                    <Link to={`/catalogo/${titulo.id}`} key={titulo.id}>
+                    <Link to={`/catalogo/${titulo.categoria}`} key={titulo.id}>
                         <div className='sectionmain__container' style={{ backgroundImage: `url(${titulo.fondo})` }}>
                             <article className='sectionmain__article' >
                                 <h3 className='sectionmain__title'>{titulo.title}</h3>

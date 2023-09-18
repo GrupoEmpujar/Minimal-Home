@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./navbar.css";
 import Button from 'react-bootstrap/Button';
@@ -7,11 +7,22 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import logo from '../../assets/images/logo/logo.png';
 import 'react-bootstrap-icons';
 
 const NavbarBs = () => {
+    const [busqueda, setBusqueda] = useState("");
+
+    const handleChange = (e) =>{
+        setBusqueda(e.target.value);
+    }
+    const handleKeyPress = (e) =>{
+        if(e.key == 'Enter'){
+            e.preventDefault();
+        }
+    }
+
     return (
         <header className='sticky-top'>
             <Navbar expand="lg" className="bg-body-tertiary navbar ">
@@ -28,13 +39,13 @@ const NavbarBs = () => {
                                 Home
                             </Nav.Link>
                             <NavDropdown title="Catalogo" id="navbarScrollingDropdown">
-                                <NavDropdown.Item className='nav__link' as={Link} to="/catalogo/living">
+                                <NavDropdown.Item className='nav__link' as={Link} to="/catalogo/Living">
                                     Living
                                 </NavDropdown.Item>
-                                <NavDropdown.Item className='nav__link' as={Link} to="/catalogo/cuadros">
+                                <NavDropdown.Item className='nav__link' as={Link} to="/catalogo/Cuadro">
                                     Cuadros
                                 </NavDropdown.Item>
-                                <NavDropdown.Item className='nav__link' as={Link} to="/catalogo/decoracion">
+                                <NavDropdown.Item className='nav__link' as={Link} to="/catalogo/Decoracion">
                                     Decoración
                                 </NavDropdown.Item>
                             </NavDropdown>
@@ -60,8 +71,11 @@ const NavbarBs = () => {
                                 className="me-2 navbar__input"
                                 aria-label="Search"
                                 size='lg'
+                                value={busqueda}
+                                onChange={handleChange}
+                                onKeyPress={handleKeyPress}
                             />
-                            <Button className='btn btn-dark'><i className="bi bi-search"></i></Button>
+                            <Link to={`/catalogo/${busqueda.toLowerCase()}`} className='btn btn-dark'><i className="bi bi-search"></i></Link>
                         </Form>
                     </Navbar.Collapse>
                 </Container>
