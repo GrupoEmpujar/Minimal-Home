@@ -23,7 +23,7 @@ const Catalogo = () => {
                 {
 
                     items.length > 0 ?
-                        items.map(item => item.category.toLowerCase() == name.name.toLowerCase() ?
+                        items.map(item => item.category == name.name ?
                             <Card key={item.id} {...item} />
                             :
                             name.name == null ?
@@ -32,7 +32,7 @@ const Catalogo = () => {
                                 '')
                         :
                         <p className='catalogo__cargando'>Cargando...</p>
-                }
+                }  
             </section>
             <section>
                 <button>1</button>

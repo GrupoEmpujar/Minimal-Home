@@ -73,9 +73,8 @@ const NavbarBs = () => {
                                 size='lg'
                                 value={busqueda}
                                 onChange={handleChange}
-                                onKeyPress={handleKeyPress}
                             />
-                            <Link to={`/catalogo/${busqueda.toLowerCase()}`} className='btn btn-dark'><i className="bi bi-search"></i></Link>
+                            <Link to={`/catalogo/${busqueda}`} className='btn btn-dark'><i className="bi bi-search"></i></Link>
                         </Form>
                     </Navbar.Collapse>
                 </Container>
