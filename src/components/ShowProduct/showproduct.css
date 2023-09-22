@@ -6,7 +6,7 @@
     --primary-500: rgb(87, 92, 88, 0.5);
     --primary-300: rgb(87, 92, 88, 0.3);
 
-    --secondary-solid: #2e3532;
+    --secondary-solid: rgb(46, 53, 50);
     --secondary-900: rgb(46, 53, 50, 0.9);
     --secondary-500: rgb(46, 53, 50, 0.5);
     --secondary-300: rgb(46, 53, 50, 0.3);
@@ -45,16 +45,14 @@
     --spacing-12: 1.2rem;
     --spacing-8: 0.8rem;
 }
-.itemtable__icons-container{
-    display: flex;
-    justify-content: space-around;
+.showProducts__container{
+    background-color: var(--primary-solid);
 }
-.itemtable__td:hover{
-    background-color: var(--secondary-300);
+.showProducts__title{
+    font-size: var(--font-display);
+
 }
-.itemtable__tr > td{
-    color: var(--light-font-solid);
-}
-.itemtable__tr:not(:last-child){
-    user-select: none;
+.showProducts__tabla{
+    font-size: var(--font-small);
+    
 }

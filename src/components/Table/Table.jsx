@@ -1,13 +1,13 @@
 import React from 'react'
 import TableBs from 'react-bootstrap/Table';
 import ItemTable from '../ItemTable/ItemTable';
-
+import './table.css';
 
 const Table = ({items}) => {
     return (
-        <TableBs striped bordered hover variant="dark" style={{maxWidth:"1000px", margin:"auto"}}>
-            <thead>
-                <tr>
+        <TableBs striped bordered hover  className='table'>
+            <thead >
+                <tr className='table__tr'>
                     <th>ID</th>
                     <th>Producto</th>
                     <th>Descripción</th>

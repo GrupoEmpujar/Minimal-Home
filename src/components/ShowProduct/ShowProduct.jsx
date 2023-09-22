@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { ItemsContext, UPLOAD_ITEMS } from '../../context/ItemsContext'
 import { axiosInstance } from '../../services/axios.config';
 import Table from '../Table/Table';
+import './showproduct.css';
 
 
 const ShowProduct = () => {
@@ -20,9 +21,9 @@ const ShowProduct = () => {
     },[])
     return (
         <>
-        <div className='containerShowProducts'>
-            <h2 style={{ textAlign: "center" }}>Productos</h2>
-            <div className='tabla'>
+        <div className='showProducts__container'>
+            <h2 style={{ textAlign: "center" }} className='showProducts__title'>Productos</h2>
+            <div className='showProducts__tabla'>
                 {
                     items.length > 0 ?
                         <Table items={items}

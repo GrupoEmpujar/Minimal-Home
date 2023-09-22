@@ -6,6 +6,7 @@ import ModalBs from 'react-bootstrap/Modal';
 import { axiosInstance } from '../../services/axios.config';
 import * as Yup from 'yup';
 import { Button } from 'react-bootstrap';
+import './modal.css';
 
 const Modal = (props) => {
     const { items, dispatch } = useContext(ItemsContext);

@@ -7,10 +7,15 @@
   --primary-500: rgb(87, 92, 88,0.5);
   --primary-300: rgb(87, 92, 88,0.3);
 
-  --secondary-solid:rgb(46, 53, 50);
+  --secondary-solid:#2e3532;
   --secondary-900: rgb(46, 53, 50,0.9);
   --secondary-500: rgb(46, 53, 50,0.5);
   --secondary-300: rgb(46, 53, 50,0.3);
+
+  --tertiary-solid: #707371;
+    --tertiary-900: rgb(112, 115, 113,0.9);
+    --tertiary-500: rgb(112, 115, 113,0.5);
+    --tertiary-300: rgb(112, 115, 113,0.3);
 
   --dark-solid: #1f1f1f;
   --dark-900: rgb(31, 31, 31, 0.9);
