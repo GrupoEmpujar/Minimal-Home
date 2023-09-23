@@ -1,6 +1,4 @@
-*{
-    outline: 1px solid black;
-}
+
 :root {
     /* Palette */
 
@@ -59,6 +57,8 @@
 .navbar__header{
     position: sticky;
     top: 0;
+    z-index: 10;
+    display: flex;
 }
 .navbar{
     display: flex;
@@ -73,11 +73,15 @@
 }
 .logo{
     height: inherit;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 .logo img{
     height: 90px;
     object-fit: contain;
     margin-left: 5px;
+    align-items: center;
 }
 .navbar__ul{
     display: flex;
@@ -85,7 +89,7 @@
 }
 .navbar__container-ul-form{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
     align-items: center;
     width: 100%;
 }
@@ -134,12 +138,14 @@
     color: var(--light-font-solid);
     padding: var(--spacing-4);
     display: inline-block;
-    background-color: var(--dark-bg-solid);
+    background-color: var(--dark-solid);
     transition: background-color .3s ease-in-out;
     font-size: var(--font-medium);
+    border-radius: 10px;
 }
 .navbar-form__button:hover{
-    background-color: var(--dark-solid);
+    
+    background-color: var(--dark-bg-solid);
 }
 .navbar__input{
     height: 40px;
@@ -148,13 +154,7 @@
     padding-left: 10px;
     width: 100%;
 }
-
-
-@media (max-width: 1000px){
-    .navbar__contacto{
-        display: none;
-    }
-}
+/**Media Queries*/
 @media (max-width: 800px){
     .navbar__contacto{
         display: block;

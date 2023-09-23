@@ -1,11 +1,9 @@
-import React, { useRef } from 'react'
-import Carousel from 'react-bootstrap/Carousel';
-
+import React from 'react'
 import banner_1 from '../../assets/images/banner/banner_1.png';
 import banner_2 from '../../assets/images/banner/banner_2.png';
 import banner_3 from '../../assets/images/banner/banner_3.png';
 import Banner from '../Banner/Banner';
-import { Link } from 'react-router-dom';
+
 
 //!Esta informacion debe estar en un mockApi, luego ver como utilizar imagenes
 const banners = [
@@ -16,7 +14,7 @@ const banners = [
 //*Intente mapear banners para traerme el componente Banner pero tengo un error que no logro solucionar
 //*Solucionado, envie el componente <Carousel> al Componente <Banner>
 const Hero = () => {
-    // const bannerRef = useRef();
+
     return (
         <Banner banners={banners}/>
         

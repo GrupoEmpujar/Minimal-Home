@@ -31,7 +31,7 @@ const Section = () => {
         <section className='sectionmain'>
             {
                 titulos.map(titulo => (
-                    <Link to={`/catalogo/${titulo.categoria}`} key={titulo.id}>
+                    <Link to={`/catalogo/${titulo.categoria}`} key={titulo.id} className='sectionmain__a'>
                         <div className='sectionmain__container' style={{ backgroundImage: `url(${titulo.fondo})` }}>
                             <article className='sectionmain__article' >
                                 <h3 className='sectionmain__title'>{titulo.title}</h3>

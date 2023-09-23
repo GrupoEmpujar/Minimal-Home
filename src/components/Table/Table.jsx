@@ -5,7 +5,7 @@ import './table.css';
 
 const Table = ({items}) => {
     return (
-        <TableBs striped bordered hover  className='table'>
+        <TableBs striped bordered hover  className='table table-dark'>
             <thead >
                 <tr className='table__tr'>
                     <th>ID</th>

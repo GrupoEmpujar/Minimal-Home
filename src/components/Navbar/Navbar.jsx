@@ -33,6 +33,9 @@ const Navbar = () => {
                         <li className='navbar__contacto'>
                             <NavLink to='/contacto'>Contacto</NavLink>
                         </li>
+                        <li className='navbar__contacto'>
+                            <NavLink to='/admin'>Admin</NavLink>
+                        </li>
                     </ul>
                     <form className="navbar__form">
                         <input

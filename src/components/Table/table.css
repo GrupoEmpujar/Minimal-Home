@@ -56,12 +56,13 @@
     border: 1px solid var(--dark-bg-solid);
 }
 .table>:not(caption)>*>*{
-    background-color:var(--secondary-solid);
+    background-color:var(--secondary-solid) !important;
 }
 .table-striped>tbody>tr:nth-of-type(odd)>*{
-    --bs-table-bg-type: var(--tertiary-solid);
+    --bs-table-bg-type: var(--tertiary-solid) !important;
 }
 .table__tr > th{
     color: var(--light-font-solid);
     font-weight: 400;
+    user-select: none;
 }

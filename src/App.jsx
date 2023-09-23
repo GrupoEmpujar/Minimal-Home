@@ -1,10 +1,11 @@
 import { useReducer } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router} from "react-router-dom";
 import AppRoutes from "./routes/Routes"
 import NavbarBs from './components/Navbar/Navbar';
 import 'react-bootstrap';
-import { ItemsContext, UPLOAD_ITEMS, ItemsReducer } from './context/ItemsContext';
+import { ItemsContext, ItemsReducer } from './context/ItemsContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {

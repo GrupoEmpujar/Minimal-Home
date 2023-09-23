@@ -10,7 +10,7 @@ const Catalogo = () => {
     useEffect(() => {
         axiosInstance.get('/')
             .then(response => {
-                if (response.status == 200) {
+                if (response.status === 200) {
                     setItems(response.data)
                 }
             })
@@ -23,7 +23,7 @@ const Catalogo = () => {
                 {
 
                     items.length > 0 ?
-                        items.map(item => item.category == name.name ?
+                        items.map(item => item.category === name.name ?
                             <Card key={item.id} {...item} />
                             :
                             name.name == null ?

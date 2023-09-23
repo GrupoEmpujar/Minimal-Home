@@ -1,6 +1,8 @@
-import React, { forwardRef } from 'react'
+import React from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import { Link } from 'react-router-dom';
+import './banner.css';
+
 
 const Banner = ({ banners }) => {
     return (
@@ -12,6 +14,7 @@ const Banner = ({ banners }) => {
                             <img
                                 src={banner.url}
                                 alt={banner.alt}
+                                className='banner__img'
                             />
                         </Link>
 
