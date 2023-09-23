@@ -4,7 +4,7 @@ import Modal from '../Modal/Modal';
 import { axiosInstance } from '../../services/axios.config';
 import './itemtable.css';
 
-function ItemTable({ id, name, description, image, price, stock }) {
+function ItemTable({ id, name, description, image, price, stock, page }) {
     const [modalShow, setModalShow] = useState(false);
     const { items, dispatch } = useContext(ItemsContext);
 
@@ -22,9 +22,10 @@ function ItemTable({ id, name, description, image, price, stock }) {
             <tr className='itemtable__tr'>
                 <td className='itemtable__td' style={{textAlign:"center"}}> {id}</td>
                 <td className='itemtable__td'>{name}</td>
-                <td className='itemtable__td'>{description}</td>
+                <td className='itemtable__td itemtable__description'>{description}</td>
                 <td className='itemtable__td'>${price}</td>
                 <td className='itemtable__td'>{stock}</td>
+                <td className='itemtable__td'>{page}</td>
                 <td className='itemtable__td'>
                     <div className='itemtable__icons-container'>
                         <i
@@ -48,6 +49,7 @@ function ItemTable({ id, name, description, image, price, stock }) {
                 price={price}
                 stock={stock}
                 image={image}
+                page={page}
             // onSubmit={editItem}
             />
         </>

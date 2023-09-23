@@ -71,3 +71,9 @@
     text-align: center;
     color: var(--light-font-solid);
 }
+@media (max-width:800px) {
+    .catalogo__section{
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+}

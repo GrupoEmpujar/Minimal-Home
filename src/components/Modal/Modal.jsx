@@ -11,13 +11,14 @@ import './modal.css';
 const Modal = (props) => {
     const { items, dispatch } = useContext(ItemsContext);
 
-    const { name, description, image, stock, price,id } = props;
+    const { name, description, image, stock, price, id, page } = props;
     const initialValues = {
         name: name || '',
         description: description || '',
         image: image || '',
         stock: stock || '',
-        price: price || ''
+        price: price || '',
+        page: page || '',
     };
     const validationSchema = Yup.object().shape({
         name: Yup.string()
@@ -32,6 +33,8 @@ const Modal = (props) => {
         stock: Yup.number()
             .required('El campo es obligatorio'),
         price: Yup.number()
+            .required('El campo es obligatorio'),
+            page: Yup.number()
             .required('El campo es obligatorio')
     })
     return (
@@ -53,10 +56,10 @@ const Modal = (props) => {
                     onSubmit={async (values, { setSubmitting}) => {
                         axiosInstance.put(`/${id}`, values)
                             .then(response => {
-                                if (response.status == 200) {
+                                if (response.status === 200) {
 
                                     const itemsUpload = items.map(item => {
-                                        if (item.id == response.data.id) {
+                                        if (item.id === response.data.id) {
                                             return response.data
                                         }
                                         return item
@@ -108,6 +111,13 @@ const Modal = (props) => {
                                     <FormBs.Label htmlFor="price">Precio del producto</FormBs.Label>
                                     {
                                         errors.price && touched.price && (<ErrorMessage name='price' component='div' className='error'></ErrorMessage>)
+                                    }
+                                </FormBs.Group>
+                                <FormBs.Group className="mb-3 form-floating formField">
+                                    <FormBs.Control as={Field} id='page' type='number' placeholder='' name='page' className='input' onChange={handleChange} />
+                                    <FormBs.Label htmlFor="page">Página</FormBs.Label>
+                                    {
+                                        errors.page && touched.page && (<ErrorMessage name='page' component='div' className='error'></ErrorMessage>)
                                     }
                                 </FormBs.Group>
                                 <Button

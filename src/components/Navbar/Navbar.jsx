@@ -1,10 +1,11 @@
 import React,{useState} from 'react';
 import './navbar.css';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import logo from '../../assets/images/logo/logo.png';
 import 'react-bootstrap-icons';
 
 const Navbar = () => {
+    const location = useLocation();
     const [menuOpen, setMenuOpen] = useState(false);
     return (
         <header className='navbar__header'>
@@ -37,7 +38,9 @@ const Navbar = () => {
                             <NavLink to='/admin'>Admin</NavLink>
                         </li>
                     </ul>
-                    <form className="navbar__form">
+                    {
+                        location.pathname === "/catalogo" ? 
+                        <form className="navbar__form">
                         <input
                             type="text"
                             placeholder="Buscar producto..."
@@ -48,7 +51,9 @@ const Navbar = () => {
                         <Link to={`/catalogo/`} className='navbar-form__button'>
                             Buscar
                         </Link>
-                    </form>
+                    </form>: ""
+                    }
+                    
                 </div>
             </nav>
         </header>

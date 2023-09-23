@@ -10,9 +10,10 @@ const Table = ({items}) => {
                 <tr className='table__tr'>
                     <th>ID</th>
                     <th>Producto</th>
-                    <th>Descripción</th>
+                    <th className='itemtable__description'>Descripción</th>
                     <th>Precio</th>
                     <th>Stock</th>
+                    <th>Page</th>
                     <th style={{textAlign:"center"}}>Herramientas</th>
                 </tr>
             </thead>

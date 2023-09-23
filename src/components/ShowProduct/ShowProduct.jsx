@@ -24,7 +24,7 @@ const ShowProduct = () => {
         <>
         <div className='showProducts__container'>
             <h2 style={{ textAlign: "center" }} className='showProducts__title'>
-                {items.length == 0? "No hay productos en el sistema":items.length == 1? "1 producto":`${items.length} productos`}
+                {items.length === 0? "No hay productos en el sistema":items.length === 1? "1 producto":`${items.length} productos`}
             </h2>
             <div className='showProducts__tabla'>
                 {

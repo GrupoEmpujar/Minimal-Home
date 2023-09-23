@@ -81,11 +81,13 @@
     height: 90px;
     object-fit: contain;
     margin-left: 5px;
-    align-items: center;
+
 }
 .navbar__ul{
     display: flex;
+    align-items: center;
     padding: 0;
+    margin-bottom: 0;
 }
 .navbar__container-ul-form{
     display: flex;
@@ -109,7 +111,7 @@
 .navbar__menu{
     display: none;
     position: absolute;
-    top: 2rem;
+    top: 2.7rem;
     right: 1.8rem;
     flex-direction: column;
     justify-content: space-around;
@@ -132,6 +134,7 @@
     display: flex;
     align-items: center;
     width: 30%;
+    gap: 10px;
 }
 .navbar-form__button{
     text-decoration: none;
@@ -172,7 +175,7 @@
         margin-bottom: 0.25rem;
     }
     .navbar__ul li{
-        width: 50%;
+        width: 70%;
         margin: 0.2rem 0.5rem;
     }
     .navbar__form{
@@ -191,6 +194,7 @@
         width: 100%;
         margin-bottom: 0.25rem;
     }
+    
 }
 
 
