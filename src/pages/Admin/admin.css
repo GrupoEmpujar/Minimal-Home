@@ -51,4 +51,5 @@
     text-align: center;
     padding: var(--spacing-12);
     margin-bottom: 0;
+    color: var(--light-font-solid);
 }

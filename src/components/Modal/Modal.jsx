@@ -26,7 +26,6 @@ const Modal = (props) => {
             .required('El campo es obligatorio'),
         description: Yup.string()
             .min(10, 'Descripcion demasiado corta')
-            .max(150, 'Descripcion demasiado larga')
             .required('El campo es obligatorio'),
         image: Yup.string()
             .required('El campo es obligatorio'),
