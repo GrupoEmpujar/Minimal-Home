@@ -71,5 +71,11 @@
 .section__formulario{
     background-color: var(--primary-solid);
     padding: var(--spacing-36) 0;
-
+}
+.formulario__btn{
+    font-size: var(--font-xsmall) !important;
+    color: var(--light-font-solid);
+}
+.formulario__input{
+    font-size: var(--font-small) !important;
 }

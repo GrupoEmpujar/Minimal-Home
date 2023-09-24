@@ -1,12 +1,25 @@
 import React,{useState} from 'react';
 import './navbar.css';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../assets/images/logo/logo.png';
 import 'react-bootstrap-icons';
 
 const Navbar = () => {
     const location = useLocation();
     const [menuOpen, setMenuOpen] = useState(false);
+
+    const [busqueda, setBusqueda] = useState("");
+    const handleChange = e =>{
+        setBusqueda(e.target.value);
+
+    }
+    
+    const navigate = useNavigate();
+    const handleSubmit = (event) => {
+        event.preventDefault()
+
+        navigate(`/catalogo/${busqueda}`);
+    };
     return (
         <header className='navbar__header'>
 
@@ -39,19 +52,26 @@ const Navbar = () => {
                         </li>
                     </ul>
                     {
-                        location.pathname === "/catalogo" ? 
-                        <form className="navbar__form">
+                        location.pathname === "/contacto" || location.pathname === "/admin" ? 
+                        ""
+                        :
+                        <form 
+                        className="navbar__form"
+                        onSubmit={handleSubmit}
+                        >
                         <input
                             type="text"
                             placeholder="Buscar producto..."
                             className="navbar__input"
                             aria-label="Search"
                             id="searchInput"
+                            value={busqueda}
+                            onChange={handleChange}
                         />
-                        <Link to={`/catalogo/`} className='navbar-form__button'>
+                        <Link to={`/catalogo/${busqueda}`} className='navbar-form__button'>
                             Buscar
                         </Link>
-                    </form>: ""
+                    </form>
                     }
                     
                 </div>

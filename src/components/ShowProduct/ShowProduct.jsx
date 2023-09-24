@@ -11,7 +11,6 @@ const ShowProduct = () => {
         axiosInstance.get('/')
         .then(response =>{
             if(response.status === 200){
-                console.log(response.data);
                 dispatch({type:UPLOAD_ITEMS, payload:response.data})
             }else {
                 throw new Error(`[${response.status} error en la solicitud]`)
@@ -19,7 +18,7 @@ const ShowProduct = () => {
         })
         .catch(err => console.error(err))
     },[])
-    console.log(items);
+
     return (
         <>
         <div className='showProducts__container'>

@@ -5,7 +5,15 @@ import Card from '../../components/Card/Card';
 import { useParams } from 'react-router-dom';
 
 const Catalogo = () => {
-    const name = useParams();
+    useEffect(() => {
+
+        window.scrollTo(0, 0);
+    }, []);
+
+
+    const busqueda = useParams();
+
+    console.log(busqueda);
     const [items, setItems] = useState([]);
     useEffect(() => {
         axiosInstance.get('/')
@@ -16,17 +24,20 @@ const Catalogo = () => {
             })
             .catch(err => console.error(err))
     }, [])
+
+    const paginas = [...new Set(items.map(item => item.page))];
+
     return (
         <section className='catalogo'>
             <h1 className='catalogo__title'>Catálogo</h1>
             <section className='catalogo__section'>
                 {
 
-                    items.length > 0 ?
-                        items.map(item => item.category === name.name ?
+                    items?
+                        items.map(item => item.category === busqueda.name ?
                             <Card key={item.id} {...item} />
                             :
-                            name.name == null ?
+                            busqueda.name == null ?
                                 <Card key={item.id} {...item} />
                                 :
                                 '')
@@ -34,8 +45,12 @@ const Catalogo = () => {
                         <p className='catalogo__cargando'>Cargando...</p>
                 }  
             </section>
-            <section>
-                <button>1</button>
+            <section className='catalogo-botonera'>
+                {
+                    paginas.map(pagina =>(
+                        <button key={pagina} className='catalogo-botonera__button'>{pagina}</button>
+                    ))
+                }
             </section>
         </section>
     )

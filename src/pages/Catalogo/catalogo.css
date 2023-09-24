@@ -1,3 +1,4 @@
+
 :root {
     /* Palette */
 
@@ -71,6 +72,28 @@
     text-align: center;
     color: var(--light-font-solid);
 }
+.catalogo-botonera{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-24);
+    gap: var(--spacing-16);
+}
+.catalogo-botonera__button{
+    border: none;
+    background-color: none;
+    background-color: var(--dark-solid);
+    padding: var(--spacing-8) var(--spacing-20);
+    font-size: var(--font-medium);
+    color: var(--light-font-solid);
+    transition: all .3s ease-in-out;
+}
+.catalogo-botonera__button:hover{
+    background-color: #2d2d2d;
+    transform: scale(1.1);
+}
+
+
 @media (max-width:800px) {
     .catalogo__section{
         grid-template-columns: repeat(2, 1fr);

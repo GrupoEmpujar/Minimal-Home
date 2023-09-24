@@ -45,7 +45,7 @@ const Modal = (props) => {
             centered
         >
             <ModalBs.Header closeButton className='bg-dark'>
-                <ModalBs.Title id="contained-modal-title-vcenter" className='text-light'>
+                <ModalBs.Title id="contained-modal-title-vcenter" className='text-light modal__title'>
                     Edición del producto
                 </ModalBs.Title>
             </ModalBs.Header>
@@ -78,7 +78,7 @@ const Modal = (props) => {
                         ({ errors, isSubmitting, touched, handleChange }) => (
                             <FormBs as={Form}>
                                 <FormBs.Group className="mb-3 form-floating formField">
-                                    <FormBs.Control as={Field} id='name' type='text' placeholder='' name='name' className='input' onChange={handleChange} />
+                                    <FormBs.Control as={Field} id='name' type='text' placeholder='' name='name' className='input modal__input' onChange={handleChange} />
                                     <FormBs.Label htmlFor="name">Nombre del producto</FormBs.Label>
                                     {
                                         errors.name && touched.name && (<ErrorMessage name='name' component='div' className='error'></ErrorMessage>)
@@ -86,35 +86,35 @@ const Modal = (props) => {
                                 </FormBs.Group>
                                 <FormBs.Group className="mb-3 form-floating formField">
 
-                                    <FormBs.Control as={Field} id='description' type='text' placeholder='' name='description' className='input' onChange={handleChange} />
+                                    <FormBs.Control as={Field} id='description' type='text' placeholder='' name='description' className='input modal__input' onChange={handleChange} />
                                     <FormBs.Label htmlFor="description">Descripcion del producto</FormBs.Label>
                                     {
                                         errors.description && touched.description && (<ErrorMessage name='description' component='div' className='error'></ErrorMessage>)
                                     }
                                 </FormBs.Group>
                                 <FormBs.Group className="mb-3 form-floating formField">
-                                    <FormBs.Control as={Field} id='image' type='text' placeholder='' name='image' className='input' onChange={handleChange} />
+                                    <FormBs.Control as={Field} id='image' type='text' placeholder='' name='image' className='input modal__input' onChange={handleChange} />
                                     <FormBs.Label htmlFor="image">Imagen del producto</FormBs.Label>
                                     {
                                         errors.image && touched.image && (<ErrorMessage name='image' component='div' className='error'></ErrorMessage>)
                                     }
                                 </FormBs.Group>
                                 <FormBs.Group className="mb-3 form-floating formField">
-                                    <FormBs.Control as={Field} id='stock' type='number' placeholder='' name='stock' className='input' onChange={handleChange} />
+                                    <FormBs.Control as={Field} id='stock' type='number' placeholder='' name='stock' className='input modal__input' onChange={handleChange} />
                                     <FormBs.Label htmlFor="stock">Stock del producto</FormBs.Label>
                                     {
                                         errors.stock && touched.stock && (<ErrorMessage name='stock' component='div' className='error'></ErrorMessage>)
                                     }
                                 </FormBs.Group>
                                 <FormBs.Group className="mb-3 form-floating formField">
-                                    <FormBs.Control as={Field} id='price' type='number' placeholder='' name='price' className='input' onChange={handleChange} />
+                                    <FormBs.Control as={Field} id='price' type='number' placeholder='' name='price' className='input modal__input' onChange={handleChange} />
                                     <FormBs.Label htmlFor="price">Precio del producto</FormBs.Label>
                                     {
                                         errors.price && touched.price && (<ErrorMessage name='price' component='div' className='error'></ErrorMessage>)
                                     }
                                 </FormBs.Group>
                                 <FormBs.Group className="mb-3 form-floating formField">
-                                    <FormBs.Control as={Field} id='page' type='number' placeholder='' name='page' className='input' onChange={handleChange} />
+                                    <FormBs.Control as={Field} id='page' type='number' placeholder='' name='page' className='input modal__input' onChange={handleChange} />
                                     <FormBs.Label htmlFor="page">Página</FormBs.Label>
                                     {
                                         errors.page && touched.page && (<ErrorMessage name='page' component='div' className='error'></ErrorMessage>)
@@ -122,7 +122,7 @@ const Modal = (props) => {
                                 </FormBs.Group>
                                 <Button
                                     type='submit'
-                                    className='btn btn-dark border-light '
+                                    className='btn btn-dark border-light modal__btn'
                                 >
                                     Cargar producto
                                 </Button>
@@ -136,7 +136,7 @@ const Modal = (props) => {
                 </Formik>
             </ModalBs.Body>
             <ModalBs.Footer className='bg-dark'>
-                <Button onClick={props.onHide} className='btn-secondary'>Close</Button>
+                <Button onClick={props.onHide} className='btn-secondary formulario__btn'>Close</Button>
             </ModalBs.Footer>
         </ModalBs>
     )

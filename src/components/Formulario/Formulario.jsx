@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Button from 'react-bootstrap/Button';
 import FormBs from 'react-bootstrap/Form';
@@ -62,7 +62,7 @@ const FormCreateProduct = () => {
                     ({ errors, isSubmitting, touched }) => (
                         <FormBs as={Form} className='formulario'>
                             <FormBs.Group className="mb-3 form-floating formField">
-                                <FormBs.Control as={Field} id='name' type='text' placeholder='' name='name' className='input mb-3' />
+                                <FormBs.Control as={Field} id='name' type='text' placeholder='' name='name' className='input formulario__input mb-3' />
                                 <FormBs.Label htmlFor="name">Nombre del producto</FormBs.Label>
                                 {
                                     errors.name && touched.name && (<ErrorMessage name='name' component='div' className='error'></ErrorMessage>)
@@ -70,35 +70,35 @@ const FormCreateProduct = () => {
                             </FormBs.Group>
                             <FormBs.Group className="mb-3 form-floating formField">
 
-                                <FormBs.Control as={Field} id='description' type='text' placeholder='' name='description' className='input' />
+                                <FormBs.Control as={Field} id='description' type='text' placeholder='' name='description' className='input formulario__input' />
                                 <FormBs.Label htmlFor="description">Descripcion del producto</FormBs.Label>
                                 {
                                     errors.description && touched.description && (<ErrorMessage name='description' component='div' className='error'></ErrorMessage>)
                                 }
                             </FormBs.Group>
                             <FormBs.Group className="mb-3 form-floating formField">
-                                <FormBs.Control as={Field} id='image' type='text' placeholder='' name='image' className='input' />
+                                <FormBs.Control as={Field} id='image' type='text' placeholder='' name='image' className='input formulario__input' />
                                 <FormBs.Label htmlFor="image">Imagen del producto</FormBs.Label>
                                 {
                                     errors.image && touched.image && (<ErrorMessage name='image' component='div' className='error'></ErrorMessage>)
                                 }
                             </FormBs.Group>
                             <FormBs.Group className="mb-3 form-floating formField">
-                                <FormBs.Control as={Field} id='stock' type='number' placeholder='' name='stock' className='input' />
+                                <FormBs.Control as={Field} id='stock' type='number' placeholder='' name='stock' className='input formulario__input' />
                                 <FormBs.Label htmlFor="stock">Stock del producto</FormBs.Label>
                                 {
                                     errors.stock && touched.stock && (<ErrorMessage name='stock' component='div' className='error'></ErrorMessage>)
                                 }
                             </FormBs.Group>
                             <FormBs.Group className="mb-3 form-floating formField">
-                                <FormBs.Control as={Field} id='price' type='number' placeholder='' name='price' className='input' />
+                                <FormBs.Control as={Field} id='price' type='number' placeholder='' name='price' className='input formulario__input' />
                                 <FormBs.Label htmlFor="price">Precio del producto</FormBs.Label>
                                 {
                                     errors.price && touched.price && (<ErrorMessage name='price' component='div' className='error'></ErrorMessage>)
                                 }
                             </FormBs.Group>
                             <FormBs.Group className="mb-3 form-floating formField">
-                                <FormBs.Control as={Field} id='category' type='text' placeholder='' name='category' className='input' />
+                                <FormBs.Control as={Field} id='category' type='text' placeholder='' name='category' className='input formulario__input' />
                                 <FormBs.Label htmlFor="price">Categoria del producto</FormBs.Label>
                                 {
                                     errors.category && touched.category && (<ErrorMessage name='category' component='div' className='error'></ErrorMessage>)
@@ -106,7 +106,7 @@ const FormCreateProduct = () => {
                             </FormBs.Group>
                             <Button
                                 type='submit'
-                                className='btn btn-dark '
+                                className='btn btn-dark formulario__btn'
                             >
                                 Cargar producto
                             </Button>
