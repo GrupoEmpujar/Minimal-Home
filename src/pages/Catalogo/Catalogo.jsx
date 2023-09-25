@@ -2,29 +2,42 @@ import React, { useEffect, useState } from 'react'
 import { axiosInstance } from '../../services/axios.config';
 import './catalogo.css';
 import Card from '../../components/Card/Card';
-import { Link} from 'react-router-dom';
+import { Link, useParams} from 'react-router-dom';
 
 const Catalogo = () => {
 //Este useEffect lo utilizamos para cuando entren a esta pagina, la vista empiece desde el inicio
     useEffect(() => {
-
         window.scrollTo(0, 0);
     }, []);
-
+    
+    
     const [items, setItems] = useState([]);
     const [listaItems, setListaItems] = useState([]);
-    const [busqueda, setBusqueda] = useState("");
+    const [busqueda, setBusqueda] = useState("");    
+    const id = useParams();
+
+
 
     const peticiones = async() =>{
         await axiosInstance.get('/')
             .then(response => {
                 if (response.status === 200) {
-                    setItems(response.data);
-                    setListaItems(response.data);
+                    if(Object.keys(id).length === 1){
+                        setItems(response.data.filter(elemento =>{
+                            if(elemento.category.toString().toLowerCase().includes(id.name.toLowerCase())){
+                                return elemento
+                            }
+                        }))
+                        setListaItems(response.data)
+                    }else{
+                        setListaItems(response.data);
+                        setItems(response.data);
+                    }
                 }
             })
             .catch(err => console.error(err))
     }
+
     useEffect(() => {
         peticiones();
     }, [])
@@ -36,10 +49,10 @@ const Catalogo = () => {
     const filtrar = terminoBusqueda =>{
         let resultadoBusqueda = listaItems.filter(elemento =>{
             // console.log(elemento.name.toString().toLowerCase())
-            console.log(terminoBusqueda);
             if(elemento.name.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())){
                 return elemento
             }
+            return '';
         })
         setItems(resultadoBusqueda);
     }
