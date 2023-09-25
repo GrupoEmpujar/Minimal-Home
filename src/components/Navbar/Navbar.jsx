@@ -11,7 +11,7 @@ const Navbar = () => {
     const [busqueda, setBusqueda] = useState("");
     const handleChange = e =>{
         setBusqueda(e.target.value);
-
+        navigate(`/catalogo/${e.target.value}`)
     }
     
     const navigate = useNavigate();
@@ -51,28 +51,7 @@ const Navbar = () => {
                             <NavLink to='/admin'>Admin</NavLink>
                         </li>
                     </ul>
-                    {
-                        location.pathname === "/contacto" || location.pathname === "/admin" ? 
-                        ""
-                        :
-                        <form 
-                        className="navbar__form"
-                        onSubmit={handleSubmit}
-                        >
-                        <input
-                            type="text"
-                            placeholder="Buscar producto..."
-                            className="navbar__input"
-                            aria-label="Search"
-                            id="searchInput"
-                            value={busqueda}
-                            onChange={handleChange}
-                        />
-                        <Link to={`/catalogo/${busqueda}`} className='navbar-form__button'>
-                            Buscar
-                        </Link>
-                    </form>
-                    }
+
                     
                 </div>
             </nav>

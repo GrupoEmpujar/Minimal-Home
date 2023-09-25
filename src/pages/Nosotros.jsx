@@ -6,7 +6,7 @@ const Nosotros = () => {
         <>
         
         <div>Nosotros</div>
-        <Hero />
+        <p>SITIO EN CONSTRUCCION</p>
         </>
     )
 }

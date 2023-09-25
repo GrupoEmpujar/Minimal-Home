@@ -32,7 +32,7 @@ const FormCreateProduct = () => {
         price: Yup.number()
             .required('El campo es obligatorio'),
         category: Yup.string()
-            .oneOf(['Cuadro', 'Sofa', 'Sillon', 'Dormitorio', 'Living', 'Mesa'], 'Ingrese una categoría válida. Ejemplo: "Cuadro", "Sofa", "Sillon"')
+            .oneOf(['Cuadro', 'Sofa', 'Sillon', 'Dormitorio', 'Living', 'Mesa', 'Decorado'], 'Ingrese una categoría válida. Ejemplo: "Cuadro", "Sofa", "Sillon", "Dormitorio", "Living", "Mesa", "Decorado"')
             .required('El campo es obligatorio')
     })
 

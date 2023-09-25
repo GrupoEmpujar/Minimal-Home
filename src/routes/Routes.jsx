@@ -5,6 +5,7 @@ import Catalogo from '../pages/Catalogo/Catalogo';
 import Nosotros from '../pages/Nosotros';
 import Admin from '../pages/Admin/Admin';
 import NotFound from '../components/NotFound/NotFound';
+import DetalleItem from '../components/DetalleItem/DetalleItem';
 
 
 
@@ -14,7 +15,8 @@ const AppRoutes = () => {
             <Route path='/' element={<Home />} />
             <Route path='/catalogo' element={<Catalogo />} />
             <Route path='/catalogo/:name' element={<Catalogo/>}/>
-            <Route path='/contacto/:id' element={<Nosotros />} />
+            <Route path='/catalogo/detalle/:id' element={<DetalleItem />}/>
+            <Route path='/contacto' element={<Nosotros />} />
             <Route path='/admin' element={<Admin />} />
             <Route path='*' element={<NotFound />}/>
         </Routes>

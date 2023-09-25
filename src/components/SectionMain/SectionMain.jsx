@@ -20,7 +20,7 @@ const titulos = [
     { id: 4, title: "Lámpara", fondo: fondo3, categoria: "Lampara" },
     { id: 5, title: "Dormitorio", fondo: fondo4, categoria: "Dormitorio" },
     { id: 6, title: "Mesas", fondo: fondo5, categoria: "Mesas" },
-    { id: 7, title: "Mesas", fondo: fondo6, categoria: "Mesas2" },
+    { id: 7, title: "Decorado", fondo: fondo6, categoria: "Decorado" },
     { id: 8, title: "Mesas", fondo: fondo7, categoria: "Mesas3" },
     { id: 9, title: "Mesas", fondo: fondo8, categoria: "Mesas4" }
 ];

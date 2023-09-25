@@ -2,57 +2,98 @@ import React, { useEffect, useState } from 'react'
 import { axiosInstance } from '../../services/axios.config';
 import './catalogo.css';
 import Card from '../../components/Card/Card';
-import { useParams } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 const Catalogo = () => {
+//Este useEffect lo utilizamos para cuando entren a esta pagina, la vista empiece desde el inicio
     useEffect(() => {
 
         window.scrollTo(0, 0);
     }, []);
 
-
-    const busqueda = useParams();
-
-    console.log(busqueda);
     const [items, setItems] = useState([]);
-    useEffect(() => {
-        axiosInstance.get('/')
+    const [listaItems, setListaItems] = useState([]);
+    const [busqueda, setBusqueda] = useState("");
+
+    const peticiones = async() =>{
+        await axiosInstance.get('/')
             .then(response => {
                 if (response.status === 200) {
-                    setItems(response.data)
+                    setItems(response.data);
+                    setListaItems(response.data);
                 }
             })
             .catch(err => console.error(err))
+    }
+    useEffect(() => {
+        peticiones();
     }, [])
+    const handleChange = e =>{
+        setBusqueda(e.target.value);
+        filtrar(e.target.value);
+    }
+
+    const filtrar = terminoBusqueda =>{
+        let resultadoBusqueda = listaItems.filter(elemento =>{
+            // console.log(elemento.name.toString().toLowerCase())
+            console.log(terminoBusqueda);
+            if(elemento.name.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())){
+                return elemento
+            }
+        })
+        setItems(resultadoBusqueda);
+    }
+
+
 
     const paginas = [...new Set(items.map(item => item.page))];
 
     return (
-        <section className='catalogo'>
-            <h1 className='catalogo__title'>Catálogo</h1>
-            <section className='catalogo__section'>
-                {
-
-                    items?
-                        items.map(item => item.category === busqueda.name ?
-                            <Card key={item.id} {...item} />
-                            :
-                            busqueda.name == null ?
+        <>
+            <nav className='catalogo__nav'>
+                <form
+                    className="catalogo__form"
+                >
+                    <input
+                        type="text"
+                        placeholder="Buscar producto..."
+                        className="navbar__input"
+                        aria-label="Search"
+                        id="searchInput"
+                        value={busqueda}
+                        onChange={handleChange}
+                    />
+                    <Link to={`/catalogo/`} className='navbar-form__button'>
+                        Buscar
+                    </Link>
+                </form>
+            </nav>
+            <section className='catalogo'>
+                <h1 className='catalogo__title'>Catálogo</h1>
+                <section className='catalogo__section'>
+                    {   
+                        
+                        items &&
+                        items.map(item =>
                                 <Card key={item.id} {...item} />
-                                :
-                                '')
-                        :
-                        <p className='catalogo__cargando'>Cargando...</p>
-                }  
-            </section>
-            <section className='catalogo-botonera'>
+                        
+                        )
+                        //     :
+                        //     <p className='catalogo__cargando'>Cargando...</p>
+                    }
+                </section>
                 {
-                    paginas.map(pagina =>(
-                        <button key={pagina} className='catalogo-botonera__button'>{pagina}</button>
-                    ))
+                items.length === 0 && <h3 className='catalogo-h3__error'> El producto no ha sido encontrado. Por favor, intente con otro término de búsqueda o artículo. </h3>
                 }
+                <section className='catalogo-botonera'>
+                    {
+                        paginas.map(pagina => (
+                            <button key={pagina} className='catalogo-botonera__button'>{pagina}</button>
+                        ))
+                    }
+                </section>
             </section>
-        </section>
+        </>
     )
 }
 
