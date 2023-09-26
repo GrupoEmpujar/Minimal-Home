@@ -19,6 +19,7 @@ const DetalleItem = () => {
     }
     useEffect(() => {
         peticiones();
+            window.scrollTo(0, 0);
     }, [])
     const handleSuma = () =>{
         if(count >= item.stock){

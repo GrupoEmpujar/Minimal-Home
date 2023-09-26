@@ -138,3 +138,12 @@
 .detalle-div__agregar:hover{
     background-color: #171717;
 }
+@media (max-width: 800px) {
+    .detalle__div {
+        grid-template-columns: 1fr;
+    }
+    .detalle-div__stock{
+        width: 100%;
+        align-items: center;
+    }
+}
