@@ -14,15 +14,15 @@ import fondo8 from '../../assets/images/cuadros/cuadro9.jpg';
 
 //Simulamos el traernos el array de objetos y solamente usar determinada propiead, entonces nos quedaria
 const titulos = [
-    { id: 1, title: "Cuadro", fondo: fondo, categoria: "Cuadro" },
+    { id: 1, title: "Cuadros", fondo: fondo, categoria: "Cuadro" },
     { id: 2, title: "Living", fondo: fondo1, categoria: "Living" },
     { id: 3, title: "Sillón", fondo: fondo2, categoria: "Sillon" },
     { id: 4, title: "Lámpara", fondo: fondo3, categoria: "Lampara" },
     { id: 5, title: "Dormitorio", fondo: fondo4, categoria: "Dormitorio" },
-    { id: 6, title: "Mesas", fondo: fondo5, categoria: "Mesas" },
+    { id: 6, title: "Mesas", fondo: fondo5, categoria: "Mesa" },
     { id: 7, title: "Decorado", fondo: fondo6, categoria: "Decorado" },
-    { id: 8, title: "Mesas", fondo: fondo7, categoria: "Mesas3" },
-    { id: 9, title: "Mesas", fondo: fondo8, categoria: "Mesas4" }
+    { id: 8, title: "Hogar", fondo: fondo7, categoria: "Hogar" },
+    { id: 9, title: "Comedor", fondo: fondo8, categoria: "Comedor" }
 ];
 
 

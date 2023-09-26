@@ -14,6 +14,7 @@ const Catalogo = () => {
     const [items, setItems] = useState([]);
     const [listaItems, setListaItems] = useState([]);
     const [busqueda, setBusqueda] = useState("");    
+    const [page, setPage] = useState(1);
     const id = useParams();
 
 
@@ -30,8 +31,13 @@ const Catalogo = () => {
                         }))
                         setListaItems(response.data)
                     }else{
+                        setItems(response.data.filter(elemento=>{
+                            if(elemento.page === page){
+                                return elemento
+                            }
+                        }))
+                        
                         setListaItems(response.data);
-                        setItems(response.data);
                     }
                 }
             })
@@ -40,7 +46,7 @@ const Catalogo = () => {
 
     useEffect(() => {
         peticiones();
-    }, [])
+    }, [page])
     const handleChange = e =>{
         setBusqueda(e.target.value);
         filtrar(e.target.value);
@@ -59,7 +65,7 @@ const Catalogo = () => {
 
 
 
-    const paginas = [...new Set(items.map(item => item.page))];
+    const paginas = [...new Set(listaItems.map(item => item.page))];
 
     return (
         <>
@@ -101,7 +107,14 @@ const Catalogo = () => {
                 <section className='catalogo-botonera'>
                     {
                         paginas.map(pagina => (
-                            <button key={pagina} className='catalogo-botonera__button'>{pagina}</button>
+                            <button 
+                            key={pagina} 
+                            className='catalogo-botonera__button'
+                            onClick={(count)=> setPage(pagina)}
+                            >
+                                
+                                {pagina}
+                            </button>
                         ))
                     }
                 </section>

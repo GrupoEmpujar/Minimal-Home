@@ -6,6 +6,7 @@ import './itemtable.css';
 
 function ItemTable({ id, name, description, image, price, stock, page }) {
     const [modalShow, setModalShow] = useState(false);
+
     const { items, dispatch } = useContext(ItemsContext);
 
     const handleDelete = (idDelete) => {
