@@ -34,7 +34,7 @@ const Modal = (props) => {
             .required('El campo es obligatorio'),
         price: Yup.number()
             .required('El campo es obligatorio'),
-            page: Yup.number()
+        page: Yup.number()
             .required('El campo es obligatorio')
     })
     return (

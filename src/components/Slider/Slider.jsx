@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './slider.css';
 import { motion } from 'framer-motion';
+import { axiosInstance } from '../../services/axios.config';
 
 import card1 from '../../assets/images/cuadros/cuadro1.jpg';
 import card2 from '../../assets/images/cuadros/cuadro2.jpg';
@@ -16,10 +17,30 @@ const cards = [
     { id: 6, url: card3, nombre: "Lorem", precio: 123123 },
 ]
 
-const CarouselSection = () => {
-    const itemWidth = 348; 
 
-    const totalWidth = cards.length * itemWidth;
+const CarouselSection = () => {
+
+    const [items, setItems] = useState([]);
+    const [destacados, setDestacados] = useState([]);
+    useEffect(()=>{
+        axiosInstance.get("/")
+        .then(response => {
+            setItems(response.data)
+            let itemsDestacados = response.data.filter(item =>{
+                if(item.destacado){
+                    return item
+                }
+            })
+            setDestacados(itemsDestacados);
+        })
+        .catch(err => alert("Error en la solicitud",err))
+        
+
+    },[])
+
+
+    const itemWidth = 348; 
+    const totalWidth = 10 * itemWidth;
     const screenWidth = window.innerWidth; // Ancho de la pantalla
     const dragLimit = totalWidth - screenWidth;
 
@@ -31,15 +52,14 @@ const CarouselSection = () => {
                 dragConstraints={{ right: 0, left:-dragLimit }} >
 
                 {
-                    cards.map(card => (
-                        <motion.div className='item' key={card.id}>
+                    destacados.map(destacado => (
+                        <motion.div className='item' key={destacado.id}>
                             
-                                <img src={card.url} alt="" />
-                            
+                                <img src={destacado.image} alt="" />
                             <div>
-                                <p>{card.nombre}</p>
-                                <p className='item__precio'>{`$${card.precio}`}</p>
-                                <Link to="/catalogo">
+                                <p>{destacado.name}</p>
+                                <p className='item__precio'>{`$${destacado.price}`}</p>
+                                <Link to={`/catalogo/detalle/${destacado.id}`}>
                                     Ver más
                                 </Link>
                             </div>

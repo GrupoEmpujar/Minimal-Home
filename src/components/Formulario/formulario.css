@@ -67,6 +67,7 @@
 }
 .submit__p{
     font-size: var(--font-xsmall);
+    color: var(--light-font-solid);
 }
 .section__formulario{
     background-color: var(--primary-solid);
