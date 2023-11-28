@@ -1,3 +1,10 @@
+h5 {/*esto es para un subrallado*/
+  border-bottom: 2px solid #fff5f5; 
+  display: inline-block; 
+  margin-bottom: 1px; 
+}
+
+
 .footer {
   background-color: #2e3532;
   padding: 20px;
@@ -24,7 +31,9 @@
 }
 
 .col-footer ul li {
+  font-size: 20px;
   margin-bottom: 5px;
+  padding: 1px;
 }
 
 .footer-bottom {
@@ -38,6 +47,10 @@
   margin: 0;
 }
 
+.list-inline-item{
+  font-size: 20px;
+  padding: 5px;
+}
 .socialicons{
   list-style-type: none;
   padding-left: 25%;
@@ -45,7 +58,8 @@
 }
 
 /* Estilos para dispositivos móviles */
-@media screen and (max-width: 767px) {
+
+@media screen and (max-width: 950px) { /*estaba en 767*/
   .footer-container {
     flex-direction: column;
     align-items: center;
