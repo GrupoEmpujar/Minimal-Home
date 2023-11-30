@@ -6,7 +6,7 @@ const Nosotros = (props) => {
     <div className="contenedor-nosotros"> 
       <img
         className="imagen-nosotros"  
-        src={require(`../../pages/Contacto/image/usuarioo-${props.imagen}.png`)} 
+        src={require(`../../pages${props.imagen}`)} 
         alt="Foto de Nosotros" 
       />
       <div className="contenedor-texto-nosotros"> 

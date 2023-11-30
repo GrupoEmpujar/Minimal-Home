@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const URL = 'https://6501c2e1736d26322f5c3dad.mockapi.io/api/productosEcommerce';
+const URL = 'http://localhost:7777/product/v1';
 
 
 export const  axiosInstance = axios.create({
     baseURL: URL
-})
+});

@@ -24,20 +24,20 @@ const Catalogo = () => {
             .then(response => {
                 if (response.status === 200) {
                     if(Object.keys(id).length === 1){
-                        setItems(response.data.filter(elemento =>{
+                        setItems(response.data.productos.filter(elemento =>{
                             if(elemento.category.toString().toLowerCase().includes(id.name.toLowerCase())){
                                 return elemento
                             }
                         }))
-                        setListaItems(response.data)
+                        setListaItems(response.data.productos)
                     }else{
-                        setItems(response.data.filter(elemento=>{
+                        setItems(response.data.productos.filter(elemento=>{
                             if(elemento.page === page){
                                 return elemento
                             }
                         }))
                         
-                        setListaItems(response.data);
+                        setListaItems(response.data.productos);
                     }
                 }
             })
