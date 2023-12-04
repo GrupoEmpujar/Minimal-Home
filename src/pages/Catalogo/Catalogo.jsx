@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { axiosInstance } from '../../services/axios.config';
+import { getProducts} from '../../services/axios.config';
 import './catalogo.css';
 import Card from '../../components/Card/Card';
 import { Link, useParams} from 'react-router-dom';
@@ -19,8 +19,8 @@ const Catalogo = () => {
 
 
 
-    const peticiones = async() =>{
-        await axiosInstance.get('/')
+    useEffect(() => {
+        getProducts()
             .then(response => {
                 if (response.status === 200) {
                     if(Object.keys(id).length === 1){
@@ -42,11 +42,7 @@ const Catalogo = () => {
                 }
             })
             .catch(err => console.error(err))
-    }
-
-    useEffect(() => {
-        peticiones();
-    }, [page])
+    }, [page,id])
     const handleChange = e =>{
         setBusqueda(e.target.value);
         filtrar(e.target.value);
@@ -94,7 +90,7 @@ const Catalogo = () => {
                         
                         items &&
                         items.map(item =>
-                                <Card key={item.id} {...item} />
+                                <Card key={item._id} {...item} />
                         
                         )
                         //     :

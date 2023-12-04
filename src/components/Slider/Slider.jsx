@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './slider.css';
 import { motion } from 'framer-motion';
-import { axiosInstance } from '../../services/axios.config';
+import { getProducts } from '../../services/axios.config';
 
 import card1 from '../../assets/images/cuadros/cuadro1.jpg';
 import card2 from '../../assets/images/cuadros/cuadro2.jpg';
@@ -23,10 +23,10 @@ const CarouselSection = () => {
     const [items, setItems] = useState([]);
     const [destacados, setDestacados] = useState([]);
     useEffect(()=>{
-        axiosInstance.get("/")
+        getProducts()
         .then(response => {
-            setItems(response.data)
-            let itemsDestacados = response.data.filter(item =>{
+            setItems(response.data.productos)
+            let itemsDestacados = response.data.productos.filter(item =>{
                 if(item.destacado){
                     return item
                 }
@@ -59,7 +59,7 @@ const CarouselSection = () => {
                             <div>
                                 <p>{destacado.name}</p>
                                 <p className='item__precio'>{`$${destacado.price}`}</p>
-                                <Link to={`/catalogo/detalle/${destacado.id}`}>
+                                <Link to={`/catalogo/detalle/${destacado._id}`}>
                                     Ver más
                                 </Link>
                             </div>

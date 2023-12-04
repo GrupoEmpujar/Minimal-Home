@@ -4,8 +4,9 @@ import Home from '../pages/Home';
 import Catalogo from '../pages/Catalogo/Catalogo';
 import Contacto from '../pages/Contacto/Contacto';
 import Admin from '../pages/Admin/Admin';
-import Nosotros from '../components/Nosotros/Nosotros';
 import DetalleItem from '../components/DetalleItem/DetalleItem';
+import AdminCrear from '../pages/Admin/AdminCrear';
+import AdminEdit from '../pages/Admin/AdminEdit';
 
 
 
@@ -18,6 +19,8 @@ const AppRoutes = () => {
             <Route path='/catalogo/detalle/:id' element={<DetalleItem />}/>
             <Route path='/contacto' element={<Contacto />} />
             <Route path='/admin' element={<Admin />} />
+            <Route path='/admin/crear' element= {<AdminCrear/>}/>;
+            <Route path='/admin/edit/:id' element={<AdminEdit />}/>;
         </Routes>
     )
 }

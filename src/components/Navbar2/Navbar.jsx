@@ -60,9 +60,6 @@ const NavbarBs = () => {
                                     Juan
                                 </NavDropdown.Item>
                             </NavDropdown>
-                            <Nav.Link as={Link} to="/admin">
-                                Admin
-                            </Nav.Link>
                         </Nav>
                         <Form className="d-flex">
                             <Form.Control

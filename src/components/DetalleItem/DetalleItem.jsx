@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { axiosInstance } from '../../services/axios.config';
+import { getProduct } from '../../services/axios.config';
 import { useParams } from 'react-router-dom';
 import './detalleitem.css';
 
@@ -8,19 +8,16 @@ const DetalleItem = () => {
     const id = useParams();
     const [item, setItem] = useState([]);
 
-    const peticiones = async () => {
-        await axiosInstance.get(`/${id.id}`)
-            .then(response => {
-                if (response.status === 200) {
-                    setItem(response.data);
-                }
-            })
-            .catch(err => console.error(err))
-    }
     useEffect(() => {
-        peticiones();
+            const getProducto = async()=>{
+                const response = await getProduct(id.id);
+                if(response.status === 200){
+                    setItem(response.data.producto);
+                }
+            }
+            getProducto();
             window.scrollTo(0, 0);
-    }, [])
+    }, [id.id])
     const handleSuma = () =>{
         if(count >= item.stock){
             setCount(item.stock)
@@ -46,11 +43,13 @@ const DetalleItem = () => {
         }
     }
     return (
+        
         <section className='detalle__section'>
             <div className='detalle__div'>
                 <picture className='detalle__picture'>
                     <img src={item.image} alt="" />
                 </picture>
+                {console.log(item)}
                 <article className='detalle__article'>
                     <h1 className='detalle__title'>{item.name}</h1>
                     <p className='detalle__description'>{item.description}</p>
