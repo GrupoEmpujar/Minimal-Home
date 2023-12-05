@@ -11,14 +11,15 @@ const Nosotros = (props) => {
       />
       <div className="contenedor-texto-nosotros"> 
         <p className="nombre-nosotros"> 
-          <strong>{props.nombre}</strong> en {props.pais}
+          <strong>{props.nombre}</strong> {/* en {props.pais} */}
         </p>
         {props.cargo && (
           <p className="cargo-nosotros"> 
             {props.cargo} 
           </p>
         )}
-        <p className="texto-nosotros">"{props.Contacto}"</p> 
+        <p className="texto-nosotros">{props.Contacto}</p> 
+        
       </div>
     </div>
   );

@@ -16,9 +16,9 @@ const Footer = () => {
 
         <div className="col-footer">
           <h5>Nosotros</h5>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem reprehenderit illum
-            aliquam veniam cum, deleniti vero unde optio minus maxime accusamus obcaecati cumque
-            corporis soluta! Aliquid similique perferendis impedit quia.</p>
+          <p>En MinimalHome, nos especializamos en brindarte muebles elegantes y funcionales para convertir tu hogar en un espacio único. Estamos orgullosos de ofrecer una 
+            amplia gama de productos de alta calidad que se ajustan a tus necesidades y estilo de vida. 
+           </p>
         </div>
 
 

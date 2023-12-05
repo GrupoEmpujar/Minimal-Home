@@ -31,8 +31,9 @@ const Admin = () => {
             <div className="d-flex justify-content-between align-items-center">
 
                 <h1>Admin - Productos</h1>
-                <div className="d-flex justify-content-end">
-                    <a href="/admin/crear" className="btn bg-white">Crear</a>
+                <div className=" justify-content-end">
+                    <button className='crear'><a href="/admin/crear" className="btn bg-white">Crear</a></button>
+                    
 
                 </div>
             </div>
@@ -79,8 +80,8 @@ const Admin = () => {
                                     <img src={producto.image} width="100" alt={producto.name} className='img_admin'/>
                                 </td>
                                 <td>
-                                    <button><a href={`/admin/edit/${producto._id}`}>Editar </a></button>
-                                    <button  onClick={()=>handleDelete(producto._id)}>Borrar </button>
+                                    <button className='edit'><a  href={`/admin/edit/${producto._id}`}>Editar </a></button>
+                                    <button className='delete' onClick={()=>handleDelete(producto._id)}>Borrar </button>
                                 </td>
                             </tr>
                         )})

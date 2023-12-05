@@ -1,3 +1,4 @@
+
 .footer {
   background-color: #2e3532;
   padding: 20px;
@@ -16,6 +17,9 @@
 
 .col-footer h5 {
   margin-bottom: 10px;
+  border-bottom: 2px solid #ddd2d2; 
+  display: inline-block; 
+  margin-bottom: 5px;
 }
 
 .col-footer ul {
@@ -24,7 +28,20 @@
 }
 
 .col-footer ul li {
+  display: flex;
   margin-bottom: 5px;
+}
+.col-footer ul li a {
+  padding: 5px;
+  font-size: 15px;
+  text-decoration: none;
+  color:#ddd2d2 ;
+  transition: color 0.3s, text-decoration 0.3s; /* Agregamos una transición suave */
+}
+
+.col-footer ul li a:hover {
+  color: rgb(76, 76, 192); /* Cambiamos el color al pasar el cursor */
+  text-decoration: underline; /* Agregamos un subrayado al pasar el cursor */
 }
 
 .footer-bottom {
@@ -43,6 +60,16 @@
   padding-left: 25%;
   display: flex;
 }
+.list-unstyled li {
+  margin-top: 0 ;
+  padding: 6px;
+  font-size: 20px;
+  transition: transform 0.3s;
+}
+.list-unstyled li:hover{
+  transform: scale(1.5);
+  
+}
 
 /* Estilos para dispositivos móviles */
 @media screen and (max-width: 767px) {
@@ -60,5 +87,17 @@
   .socialicons {
     padding-left: 0;
     justify-content: center;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .col-footer {
+    flex-basis: 45%; 
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .col-footer {
+    flex-basis: 22%; 
   }
 }
